@@ -131,9 +131,9 @@
 			}
 
 			span {
-				width: 75%;
+				width: 60%;
 				display: block;
-				padding: 0 1rem;
+				padding: 0 .5rem;
 
 				@media screen and (min-width: theme('screens.sm')) {
 					width: auto;

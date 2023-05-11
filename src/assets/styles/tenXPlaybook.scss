@@ -1,7 +1,7 @@
 .hero-playbook {
-	background-image: url(../images/playbook-hero-small.png);
+	background-image: url(../images/playbook-hero-small2.png);
 
-	@media screen and (min-width: theme('screens.md')) {
-		background-image: url(../images/playbook-hero-large.png);
+	@media screen and (min-width: theme('screens.sm')) {
+		background-image: url(../images/playbook-hero-large2.png);
 	}
 }
