@@ -91,8 +91,8 @@
 
 		blockquote p {
 			font-family: var(--aw-font-serif);
-			font-size: var(--aw-text-2xl);
-			line-height: 2rem;
+			font-size: var(--aw-text-xl);
+			line-height: 1.75rem;
 			text-align: center;
 			
 			@media screen and (min-width: theme('screens.sm')) {
@@ -101,13 +101,13 @@
 			}
 
 			@media screen and (min-width: theme('screens.md')) {
-				font-size: var(--aw-text-3xl);
-				line-height: 2.5rem;
+				font-size: var(--aw-text-2xl);
+				line-height: 2rem;
 				width: 80%;
 			}
 
-			@media screen and (min-width: theme('screens.lg')) {
-				font-size: var(--aw-text-4xl);
+			@media screen and (min-width: theme('screens.xl')) {
+				font-size: var(--aw-text-3xl);
 				line-height: 1.4;
 				width: 100%;
 			}

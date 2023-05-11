@@ -30,14 +30,14 @@
 }
 
 .stats--name {
-	width: 70px;
+	width: 50px;
 
 	@media screen and (min-width: theme('screens.sm')) {
-		width: 95px;
+		width: 70px;
 	}
 
 	@media screen and (min-width: theme('screens.lg')) {
-		width: 140px;
+		width: 85px;
 	}
 }
 
