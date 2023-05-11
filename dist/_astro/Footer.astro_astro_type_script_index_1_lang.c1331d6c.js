@@ -1,0 +1,1 @@
+const t=document.querySelector(".navbarfooter"),o=t.querySelectorAll("a"),r=window.location.href;o.forEach(e=>{e.href===r&&e.classList.add("active")});document.querySelector("#copyright").textContent=new Date().getFullYear().toString();
