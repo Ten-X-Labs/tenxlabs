@@ -3,13 +3,13 @@ import defaultImage from './assets/images/default.png';
 const CONFIG = {
   name: 'Ten X Labs',
 
-  origin: 'https://astrowind.vercel.app',
+  origin: 'https://ten-x-labs.com/',
   basePathname: '/',
   trailingSlash: false,
 
-  title: 'Ten X Labs — Discovering Founders Who Have Something to Prove',
+  title: 'Ten X Labs — Venture capital for first-time Founders of color',
   description:
-    'Ten X Labs is discovering great first time founders who aren’t being served today, at scale. This means that your investment is priced at very early stage valuations, while at the same time, we de-risk those investments through the unique pre-investment due diligence we perform and the post-investment operating model we provide.',
+    'Ten X Labs is an Angel and pre-Seed fund that differentiates itself by creating deep, trusting bonds with first-time Founders before they’re even ready for investment. We build on this trust, adding expertise and capital to get in on the ground floor of these minority-led companies.',
   defaultImage: defaultImage,
 
   defaultTheme: 'light:only', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"

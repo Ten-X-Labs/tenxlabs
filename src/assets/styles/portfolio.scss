@@ -101,13 +101,16 @@
   stroke: var(--aw-color-primary);
 }
 
-.main-link {
-  .portfolio--image:hover {
+.main-link:hover {
+  
+  //transition-timing-function: ease-in-out;
+
+  .portfolio--image-background {
+    transition-duration: 350ms;
+    //transition-timing-function: ease-in-out;
     transform:scale(1.05,1.05);
     -webkit-transform:scale(1.05,1.05);
     -moz-transform:scale(1.05,1.05);
     transition-property: transform;
-    transition-duration: 350ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
