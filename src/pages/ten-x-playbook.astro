@@ -1,0 +1,151 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Icon } from 'astro-icon';
+import '~/assets/styles/tenXPlaybook.scss';
+
+const meta = {
+  title: "Ten X Playbook",
+};
+---
+
+<Layout {meta}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero2
+    title="Repeatable, sustainable, success."
+    subtitle="Ten X Labs assists first-time Founders of color by providing Angel and pre-Seed financing coupled with a unique operational approach that improves business results and speeds up access to larger capital markets."
+    bannerClass="hero-playbook"
+  />
+
+  <!-- Page content ******************** -->
+  <section class="fund-operations second-level relative">
+    <div class="second-level--title relative px-4 pt-8 md:pt-10 mx-auto max-w-8xl md:px-8 lg:pt-14 lg:px-10 xl:px-8 text-center">
+      <div>
+        <h3 class="lg:pb-2">How it Works</h3>
+        <h2>Prescribed Execution Framework</h2>
+      </div>
+    </div>
+
+    <div class="second-level--content relative px-4 py-4 md:py-10 mx-auto max-w-8xl md:px-8 lg:py-14 lg:px-10 xl:px-8">
+      <!-- Start page content -->
+      <div class="second-level--content-section second-level--border pt-4 lg:pt-8 lg:pb-4 lg:grid lg:grid-cols-12 lg:gap-8">
+        <div class="second-level--content-left lg:col-span-4">
+          <h3>6 Weeks</h3>
+          <h2>Build trust</h2>
+        </div>
+        <div class="second-level--content-right lg:col-span-8">
+          <p>Ten X Labs conducts a no-cost, one-on-one, six week “Founders Program”  where we explore three critical startup areas with the Founders. This one-on-one approach enables Ten X Labs Partners to observe Founders at work, and gives the Founders an opportunity to build a relationship with 10X prior to any future moves. In the Founders Program, we cover:</p>
+          <Accordion>
+            <AccordionItem
+              header="Product/Market fit"
+            >
+              <p>Founders are required to research their markets and competitors, and are exposed to human-centered design practices, which highlight the pitfalls of engineering-driven companies. Target personas are developed, and methods for reaching them at scale are explored. Product differentiation, as well as defensibility of IP, is evaluated and in the cases where access to technical experts is helpful, we connect Founders to individuals in our network, from engineering to law.</p>
+            </AccordionItem>
+            <AccordionItem
+              header="Operations and Team"
+            >
+              <p>We explore exactly which KPIs the company should focus on, right now, and what type of management, consultant and teaming structure is needed. Alternate business models are explored. The focus here is to give the Founders confidence that what they are working on matters for their company’s next step in maturity. Many Founders tend to focus on problems that aren’t required to be solved at the moment, while at the same time, ignoring the things that get them to that next level.
+              </p>
+            </AccordionItem>
+            <AccordionItem
+              header="Financial Acumen"
+            >
+              <p>We work with the Founders to establish a budget and how to focus spending on the things that matter for this stage of their business. The focus is on the next 6-12 months, the money likely to be needed during that time, and at what cost.</p>
+            </AccordionItem>
+          
+            <!-- ... -->
+          
+          </Accordion>
+          <a class="btn btn-primary mt-8 mb-8" href="https://bit.ly/10XFoundersApplication" target="_blank">
+            Apply to become a 10X Founder <Icon name="ic:outline-keyboard-arrow-right" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Start page content -->
+      <div class="second-level--content-section second-level--border pt-4 lg:pt-8 lg:pb-4 lg:grid lg:grid-cols-12 lg:gap-8">
+        <div class="second-level--content-left lg:col-span-4">
+          <h3>3-6 Months</h3>
+          <h2>Validate potential</h2>
+        </div>
+        <div class="second-level--content-right lg:col-span-8">
+          <p>At the culmination of the Founders Program, it’s possible that Ten X Labs will want to make an initial (Angel) investment in the company. If this occurs, a Ten X Labs Operating Partner will be assigned to the company and will work with the Founders to develop a Term Sheet. While typical in most respects, a Ten X Term Sheet requires that we jointly establish specific KPIs, so that we have alignment on where these investment dollars will be spent, and the results needed to get to the next round. We usually aren’t looking for scalable revenues during this phase, but rather validation that the problem exists and that this solution is a viable one. Ideally, we want to exit this period with the following:</p>
+          <Accordion>
+            <AccordionItem
+              header="A user-validated prototype or v1 offering"
+            >
+              <p>This stage of the company requires that a fully functional offering is in the market, and that the target users will adopt it. This is about validating the product solves a valuable problem, as opposed to generating revenues at scale. At this stage, we have only working theories regarding how to economically scale revenues and early hypotheses into fundamental profitability of the business (i.e. gross margins and their scalability).</p>
+            </AccordionItem>
+            <AccordionItem
+              header="Removal of all technical uncertainty around that offering"
+            >
+              <p>Depending on the complexity of the offering, any areas that present technical risk should be pretty completely removed during this initial investment phase.</p>
+            </AccordionItem>
+            <AccordionItem
+              header="An evidence-based hypothesis for route to market"
+            >
+              <p>While we aren’t looking for scale at this point, we want to have tested some ability to attract the target buyers, and develop a point of view that this is a scalable approach to be executed during the next round. This reflects the overall Ten X Labs approach: test unknowns to develop a POV on how to scale those methods during the next round of financing.</p>
+            </AccordionItem>
+          
+            <!-- ... -->
+          
+          </Accordion>
+          <p>During this phase, Ten X Labs also works with the Founders to start mapping out the organizational roles that will be required at the next stage of their growth, and the company will have begun to recruit for those roles.</p>
+        </div>
+      </div>
+
+      <!-- Start page content -->
+      <div class="second-level--content-section second-level--border pt-4 lg:pt-8 lg:pb-4 lg:grid lg:grid-cols-12 lg:gap-8">
+        <div class="second-level--content-left lg:col-span-4">
+          <h3>9-12 Months</h3>
+          <h2>Establish business</h2>
+        </div>
+        <div class="second-level--content-right lg:col-span-8">
+          <p>If the company hits their previous KPIs, the intention is for Ten X Labs to make a follow-on Pre-Seed investment and to move the assigned Operating Partner to a Board seat. While the product spend will continue to grow during this phase, we also begin working with the Founders to build their business (as opposed to the almost maniacal focus on product during the Angel phase). To prepare the business for an outside-led Seed round, the Pre-Seed phase is focused on:</p>
+          <Accordion>
+            <AccordionItem
+              header="Proven marketing and sales results"
+            >
+              <p>Recurring revenues and a scalable approach to the initial target personas are established.</p>
+            </AccordionItem>
+            <AccordionItem
+              header="Scalable product architecture"
+            >
+              <p>In the Angel phase, the product may be a combination of digital and analog hacks, but during the pre-Seed phase we help the company move to an architecture that is more durable.</p>
+            </AccordionItem>
+            <AccordionItem
+              header="Core team in place full-time"
+            >
+              <p>Key roles are full-time employees and contractors, and a pro-forma structure is in place for hiring during any Seed and later funding rounds. During this pre-Seed phase, an employee stock option pool is set up and new hires are considered for options as a part of their financial package with the company.</p>
+            </AccordionItem>
+          
+            <!-- ... -->
+          
+          </Accordion>
+          <p>Again, by working with the Founders before the pre-Seed round is closed, Ten X Labs helps establish specific KPIs they need and expect to achieve. The focus is on preparing the business for an outside-led Seed round from a traditional VC.</p>
+          <p>In general, the Founders’ focus now needs to turn to Revenues and Gross Margins.</p>
+          <p>The principal operating system installed is one of continuous improvement. We work with the Founders on team dynamics, their newly-defined option pool and how to think about startup compensation. Ten X Labs also continuously works with the Founders to help them become confident juggling their larger responsibilities as well as their communications with a growing network of financing alternatives.</p>            
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Playbook CTA -->
+
+  <section class="relative home-playbook playbook-page mb-8">
+    <div class="home-playbook--border relative px-4 pt-4 md:py-10 mx-auto max-w-8xl lg:py-14 lg:px-12">
+      <div class="home-playbook--container lg:flex lg:space-x-3">
+        <div class="home-playbook--left-content lg:w-2/5 lg:pr-4 ">
+          <h3>Founder Mantra</h3>
+          <h2>We change the typical early-stage risk dynamic by indexing more on the quality of the Founder rather than the proven performance of the idea.</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import '~/scripts/accordion.js'
+</script>

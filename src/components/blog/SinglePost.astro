@@ -1,0 +1,77 @@
+---
+import { Picture } from '@astrojs/image/components';
+import { findImage } from '~/utils/images';
+
+import type { Post } from '~/types';
+import '~/assets/styles/singlePost.scss';
+
+export interface Props {
+  post: Post;
+  url: string | URL;
+}
+
+const { post } = Astro.props;
+const imageSmall = await findImage(post.imageSmall);
+const imageLarge = await findImage(post.imageLarge);
+---
+
+<section class="founders-story relative mx-auto">
+  <article>
+    <header>
+      <div class="founders-story--header mx-auto max-w-8xl relative">
+        <div class="founders-story--header-hero">
+          {
+            imageSmall && (
+              <Picture
+                src={imageSmall}
+                class="small-image"
+                widths={[400, 900]}
+                width={400}
+                sizes="(max-width: 900px) 400px, 900px"
+                alt="something"
+                loading="lazy"
+                decoding="async"
+              />
+            )
+          }
+          {
+            imageLarge && (
+              <Picture
+                src={imageLarge}
+                class="large-image"
+                widths={[1344]}
+                width={1344}
+                sizes="(max-width: 1344px) 900px"
+                alt="something"
+                loading="lazy"
+                decoding="async"
+              />
+            )
+          }
+        </div>
+        <div class="founders-story--header-titles relative">
+          <div class="founders-story--header-titles-container">
+            <h3>Ten X Labs Founders Story — {post.companyName}</h3>
+            <h1>
+              {post.title}
+            </h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="founders-story--content">
+      <div class="founders-story--content-container relative px-4 py-4 md:px-8 md:py-8 mx-auto max-w-[1050px] lg:py-14 lg:px-12">
+        {
+          post.Content ? (
+            <>
+              {/* @ts-ignore */}
+              <post.Content />
+            </>
+          ) : (
+            <Fragment set:html={post.content} />
+          )
+        }
+      </div>
+    </div>
+  </article>
+</section>

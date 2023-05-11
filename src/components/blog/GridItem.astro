@@ -1,0 +1,66 @@
+---
+import { Picture } from '@astrojs/image/components';
+import { Icon } from 'astro-icon';
+
+import { BLOG } from '~/config.mjs';
+import type { Post } from '~/types';
+
+import { findImage } from '~/utils/images';
+import { getPermalink } from '~/utils/permalinks';
+
+export interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const cardImage = await findImage(post.cardImage);
+const logo = await findImage(post.logo);
+---
+
+<article class="portfolio--card mb-2 relative transition">
+  <a href={getPermalink(post.permalink, 'post')} class="main-link" title=`Learn more about ${post.companyName}`>
+    <div class="portfolio--image relative">
+      {
+        cardImage && (
+          <Picture
+            src={cardImage}
+            class="md:object-cover"
+            widths={[400, 900]}
+            width={768}
+            height={450}
+            sizes="(max-width: 900px) 400px, 900px"
+            alt={post.founderName}
+            loading="lazy"
+            decoding="async"
+          />
+        )
+      }
+      <div class="portfolio--logo-container rounded-full">
+        {
+          logo && (
+            <Picture
+                src={logo}
+                class="portfolio--logo"
+                widths={[33, 33]}
+                width={33}
+                height={33}
+                sizes="(max-width: 900px) 400px, 900px"
+                alt={post.companyName}
+                loading="lazy"
+                decoding="async"
+            />
+          )
+        }
+      </div>
+    </div>
+    <div class="portfolio--card-container">
+      <div class="portfolio--card-content">
+          <div class="portfolio--card-founder">{post.founderName}</div>
+          <div class="portfolio--card-description text-xs"><strong>{post.companyName}</strong> — {post.companyDescription}</div>
+      </div>
+      <div class="portfolio--card-action">
+        <Icon name="ic:outline-keyboard-arrow-right" class="portfolio--card-icon" />
+      </div>
+    </div>
+  </a>
+</article>

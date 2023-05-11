@@ -1,0 +1,40 @@
+---
+import '~/assets/styles/hero.scss';
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  bannerClass?: string;
+  image?: string | any; // TODO: find HTMLElementProps
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  content = await Astro.slots.render('content'),
+  bannerClass,
+} = Astro.props;
+---
+
+<header class="hero--top relative md:-mt-[76px]">
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div class=`${bannerClass} hero hero2 hero-home relative max-w-8xl mx-auto`>
+    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
+    <div class="hero--content-container">
+      <div class="hero--content md:flex md:flex-nowrap max-w-screen-xl mx-auto">
+        {
+          title && (
+            <h1
+              class="hero--title text-4xl md:text-5xl lg:text-[5rem] font-semibold mb-4 font-heading"
+              set:html={title}
+            />
+          )
+        }
+        <div class="hero--text max-w-3xl mx-auto">
+          {subtitle && <p class="font-serif lg:text-2xl lg:leading-9 lg:pb-6 max-w-lg" set:html={subtitle} />}
+        </div>
+        {content && <Fragment set:html={content} />}
+      </div>
+    </div>
+  </div>
+</header>

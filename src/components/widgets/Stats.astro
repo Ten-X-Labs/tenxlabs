@@ -1,0 +1,65 @@
+---
+import '~/assets/styles/stats.scss';
+import { Icon } from 'astro-icon';
+
+interface Item {
+  name: string;
+  value: string;
+  what: string;
+}
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  highlight?: string;
+  items?: Array<Item>;
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  highlight,
+  items = [],
+} = Astro.props;
+---
+
+<div class="stats--container relative px-4 pt-4 pb-0 md:py-10 mx-auto max-w-8xl md:px-8 lg:py-14 lg:px-10 xl:px-8 text-center">
+  {
+    (title || subtitle || highlight) && (
+      <div class="max-w-xl lg:max-w-4xl mx-auto mb-10">
+        {highlight && (
+          <h3>
+            {highlight}
+          </h3>
+        )}
+        {title && (
+          <h2 set:html={title}
+          />
+        )}
+        {subtitle && (
+          <p class="lg:text-2xl" set:html={subtitle} />
+        )}
+      </div>
+    )
+  }
+  <div class="stats--stats">
+    {
+      items.map(({ name, value, what }) => (
+        <div class="stats--stats-container flex items-center text-left justify-center">
+          <div class="stats--icon">
+            <Icon name="ic:outline-keyboard-arrow-right" class="w-[25px] sm:w-[40px] lg:w-[50px] stroke-secondary fill-secondary text-secondary ml-[-5px]" />
+          </div>
+          <p class="stats--name text-left text-xs font-bold uppercase text-primary sm:text-base lg:text-xl tracking-normal">
+            {name}
+          </p>
+          <div class="stats--value font-bold text-[64px] sm:text-8xl lg:text-[170px] font-heading">
+            {value}
+          </div>
+          <div class="stats--what text-lg sm:text-2xl lg:text-5xl font-serif">
+            {what}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

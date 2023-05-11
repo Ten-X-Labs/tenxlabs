@@ -1,0 +1,73 @@
+---
+import '~/assets/styles/portfolio.scss';
+import Grid from '~/components/blog/Grid.astro';
+import { Icon } from 'astro-icon';
+
+import { getBlogPermalink } from '~/utils/permalinks';
+import { findLatestPosts } from '~/utils/blog';
+
+export interface Props {
+  title?: string;
+  highlight?: string;
+  description?: string;
+  allPostsText?: string;
+  allPostsLink?: string | URL;
+  information?: string;
+  postIds: string[];
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  highlight = await Astro.slots.render('title'),
+  description = await Astro.slots.render('description'),
+  allPostsText = 'Meet a few 10X Founders',
+  allPostsLink = getBlogPermalink(),
+  information = await Astro.slots.render('information'),
+  count = 3,
+} = Astro.props;
+
+const posts = await findLatestPosts({ count });
+---
+
+<section class="px-4 py-10 mx-auto max-w-8xl lg:py-20">
+  <div class="text-center mb-10 lg:mb-8 max-w-xl lg:max-w-4xl mx-auto">
+    {
+      highlight && (
+        <h3
+          set:html={highlight}
+        />
+      )
+    }
+    {
+      title && (
+        <h2
+          class="md:mb-4"
+          set:html={title}
+        />
+      )
+    }
+    {
+      description && (
+        <p
+          class="md:mb-8 lg:text-2xl"
+          set:html={description}
+        />
+      )
+    }
+  </div>
+
+  <Grid posts={posts} />
+  
+  <div class="portfolio--cta lg:flex lg:justify-center">
+    {
+      allPostsText && allPostsLink && (
+        <a
+          class="btn btn-primary mt-8"
+          href={allPostsLink}
+        >
+          {allPostsText} <Icon name="ic:outline-keyboard-arrow-right" />
+        </a>
+      )
+    }
+  </div>
+</section>

@@ -1,0 +1,105 @@
+.hero-playbook {
+	background-image: url(../images/playbook-hero-small.png);
+
+	@media screen and (min-width: theme('screens.md')) {
+		background-image: url(../images/playbook-hero-large.png);
+	}
+}
+
+.portfolio--header {
+  line-height: 1.75rem;
+}
+
+.portfolio--cta .btn {
+  max-width: 325px;
+  min-width: 250px;
+  display: flex;
+  justify-content: space-between;
+
+  svg {
+    width: 25px;
+  }
+}
+
+.portfolio--logo-container {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: #000;
+  border: 2px solid var(--aw-color-secondary);
+  padding: 5px;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio--card {
+  overflow: hidden;
+}
+
+.portfolio--card-container {
+  background-color: rgba(0,0,0,.8);
+  border-top: 2px solid var(--aw-color-secondary);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.portfolio--card-content {
+  padding-right: 2rem;
+
+  .portfolio--card-founder {
+    color: var(--aw-text-primary);
+    text-transform: none;
+    font-size: var(--aw-text-xl);
+    line-height: 1.25rem;
+    margin-bottom: .25rem;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  a, a:link, a:visited,
+  .portfolio--card-description {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.portfolio--image {
+  overflow: hidden;
+}
+
+.portfolio--card-action {
+  position: relative;
+  padding-left: 1rem;
+  border-left: 1px solid #333;
+  display: flex;
+  align-items: center;
+}
+
+.portfolio--card-icon {
+  width: 25px;
+  color: var(--aw-color-primary);
+  stroke: var(--aw-color-primary);
+}
+
+.main-link {
+  .portfolio--image:hover {
+    transform:scale(1.05,1.05);
+    -webkit-transform:scale(1.05,1.05);
+    -moz-transform:scale(1.05,1.05);
+    transition-property: transform;
+    transition-duration: 350ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}

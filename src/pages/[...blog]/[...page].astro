@@ -1,0 +1,44 @@
+---
+import { SITE, BLOG } from '~/config.mjs';
+
+import Layout from '~/layouts/PageLayout.astro';
+import BlogList from '~/components/blog/Grid.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+import '~/assets/styles/portfolio.scss';
+
+import { fetchPosts } from '~/utils/blog';
+import { BLOG_BASE } from '~/utils/permalinks';
+
+export async function getStaticPaths({ paginate }) {
+  if (BLOG?.disabled || BLOG?.grid?.disabled) return [];
+  return paginate(await fetchPosts(), {
+    params: { blog: BLOG_BASE || undefined },
+    pageSize: BLOG.postsPerPage,
+  });
+}
+
+const { page } = Astro.props;
+const currentPage = page.currentPage ?? 1;
+
+const meta = {
+  title: `Founders Stories${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  description: SITE.description,
+  noindex: BLOG?.grid?.noindex || currentPage > 1,
+  ogType: 'blog',
+};
+---
+
+<Layout {meta}>
+  <Hero2
+    subtitle="Ten X Labs is an Angel and pre-Seed fund that differentiates itself by creating deep, trusting bonds with first-time Founders before they’re even ready for investment. When that’s built, we offered continued assistance in the form of expertise and capital, helping speed up business maturity, and building minority-led, Seed-ready companies. By getting in on the ground floor with these Founders, our goal is to generate outsized returns for our investors, and change the economic landscape for our Founders."
+    title="10X focus on Founders."
+    bannerClass="hero-playbook"
+  />
+  
+  <section class="px-4 py-10 mx-auto max-w-8xl lg:py-20">
+    <BlogList posts={page.data} />
+  </section>
+  
+  <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+</Layout>

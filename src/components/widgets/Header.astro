@@ -1,0 +1,117 @@
+---
+import { Icon } from 'astro-icon';
+import ToggleMenu from '~/components/common/ToggleMenu.astro';
+
+import { getHomePermalink } from '~/utils/permalinks';
+
+interface Link {
+  text?: string;
+  href?: string;
+  ariaLabel?: string;
+  icon?: string;
+}
+
+interface ActionLink extends Link {
+  type?: string;
+}
+
+interface MenuLink extends Link {
+  links?: Array<Link>;
+}
+
+export interface Props {
+  links?: Array<MenuLink>;
+  actions?: Array<ActionLink>;
+  isSticky?: boolean;
+  position?: string;
+}
+
+const {
+  links = [],
+  actions = [],
+  isSticky = false,
+  position = 'center',
+} = Astro.props;
+---
+
+<header
+  class:list={[
+    { sticky: isSticky, relative: !isSticky },
+    'top-0 z-40 flex-none mx-auto w-full transition-all ease-in duration-100',
+  ]}
+  id="header"
+>
+  <div class="header--container py-3 px-3 md:py-3.5 md:pl-8 md:pr-4 mx-auto w-full md:flex md:justify-between max-w-8xl">
+    <div class:list={[{"mr-auto": position === "right"}, "flex justify-between"]}>
+      <a class="logo flex items-center" href={getHomePermalink()}>
+        Ten X Labs
+      </a>
+      <div class="flex items-center md:hidden">
+        <ToggleMenu />
+      </div>
+    </div>
+    <nav
+      class="items-center w-full md:w-auto hidden md:flex dark:text-slate-200 h-[calc(100vh-72px)] md:h-auto overflow-y-auto md:overflow-visible md:ml-5 md:mr-0"
+      aria-label="Main navigation"
+    >
+      <ul class="navbar flex flex-col pt-8 md:pt-0 md:flex-row md:self-center w-full md:w-auto">
+        {
+          links.map(({ text, href, links }) => (
+            <li class={links?.length ? 'dropdown' : ''}>
+              {links?.length ? (
+                <>
+                  <button class="text-[#AAA] hover:text-[#FEA62B] font-semibold uppercase px-4 py-3 flex items-center transition duration-150 ease-in-out">
+                    {text} <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 hidden md:inline" />
+                  </button>
+                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark  md:absolute pl-4 md:pl-0 md:hidden uppercase md:bg-[#333] md:min-w-[200px]">
+                    {links.map(({ text: text2, href: href2 }) => (
+                      <li class>
+                        <a
+                          class="md:hover:bg-[#454545] md:hover:text-black py-2 px-5 block whitespace-no-wrap"
+                          href={href2}
+                        >
+                          {text2}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <a
+                  class="text-[#fff] hover:text-[#FEA62B] font-semibold uppercase px-0 md:px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                  href={href}
+                >
+                  {text}
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div class:list={[{ 'ml-auto': position === 'left' }, 'header--togglemenu md:self-center flex items-center md:mb-0']}>
+      <div class="hidden items-center md:flex">
+
+        {
+          actions?.length ? (
+            <span class="ml-4">
+              {actions.map(({ text, href, type }) => (
+                <a
+                  class:list={[
+                    'btn ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none',
+                    { 'btn-ghost': type === 'ghost', 'btn-primary': type === 'primary' },
+                  ]}
+                  href={href}
+                >
+                  <Fragment set:html={text} />
+                </a>
+              ))}
+            </span>
+          ) : (
+            ''
+          )
+        }
+      </div>
+    </div>
+  </div>
+</header>
