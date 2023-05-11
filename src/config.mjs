@@ -3,7 +3,7 @@ import defaultImage from './assets/images/default.png';
 const CONFIG = {
   name: 'Ten X Labs',
 
-  origin: 'https://ten-x-labs.com/',
+  origin: 'https://ten-x-labs.com',
   basePathname: '/',
   trailingSlash: false,
 
