@@ -3,7 +3,7 @@ import defaultImage from './assets/images/default.png';
 const CONFIG = {
   name: 'Ten X Labs',
 
-  origin: 'https://astrowind.vercel.app',
+  origin: 'https://ten-x-labs.com',
   basePathname: '/',
   trailingSlash: false,
 
