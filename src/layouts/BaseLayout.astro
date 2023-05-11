@@ -1,0 +1,36 @@
+---
+import '~/assets/styles/base.scss';
+
+import MetaTags from '~/components/common/MetaTags.astro';
+import BasicScripts from '~/components/common/BasicScripts.astro';
+
+import { MetaSEO } from '~/types';
+import { SITE } from '~/config.mjs';
+
+export interface Props {
+  meta?: MetaSEO;
+}
+
+const { meta = {} } = Astro.props;
+const { language = 'en', textDirection = 'ltr' } = SITE;
+---
+
+<!DOCTYPE html>
+<html lang={language} dir={textDirection} class="">
+  <head>
+    <MetaTags {...meta} />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Noto+Serif&family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="antialiased text-page bg-light dark:text-slate-300 tracking-tight dark:bg-dark">
+    <slot />
+    <BasicScripts />
+    <style is:global>
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>

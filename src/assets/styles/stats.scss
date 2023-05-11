@@ -1,0 +1,70 @@
+.stats--stats {
+	border-top: 1px solid #444;
+}
+
+.stats--stats-container {
+	border-bottom: 1px solid #444;
+	padding-bottom: .5rem;
+	margin-top: .5rem;
+
+	@media screen and (min-width: theme('screens.sm')) {
+		padding-bottom: 1.5rem;
+		margin-top: 1.5rem;
+	}
+}
+
+.stats--stats .stats--stats-container:last-child {
+	border-bottom: 0 none;
+}
+
+.stats--icon {
+	width: 25px;
+
+	@media screen and (min-width: theme('screens.sm')) {
+		width: 45px;
+	}
+
+	@media screen and (min-width: theme('screens.lg')) {
+		width: 55px;
+	}
+}
+
+.stats--name {
+	width: 70px;
+
+	@media screen and (min-width: theme('screens.sm')) {
+		width: 95px;
+	}
+
+	@media screen and (min-width: theme('screens.lg')) {
+		width: 140px;
+	}
+}
+
+.stats--value {
+	width: 85px;
+	text-align: right;
+	margin-right: .75rem;
+	//font-family: 'Courier Prime', Courier, monospace;
+
+	@media screen and (min-width: theme('screens.sm')) {
+		width: 125px;
+	}
+
+	@media screen and (min-width: theme('screens.lg')) {
+		width: 220px;
+		margin-right: 1rem;
+	}
+}
+
+.stats--what {
+	width: 160px;
+	
+	@media screen and (min-width: theme('screens.sm')) {
+		width: 200px;
+	}
+
+	@media screen and (min-width: theme('screens.lg')) {
+		width: 710px;
+	}
+}

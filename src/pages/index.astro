@@ -1,0 +1,79 @@
+---
+import { SITE } from '~/config.mjs';
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon';
+
+import Hero from '~/components/widgets/Hero.astro';
+import LatestPosts from '~/components/blog/LatestPosts.astro';
+import Stats from '~/components/widgets/Stats.astro';
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+<Layout {meta}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    callToAction={{ text: 'More about Ten X Labs Fund', href: '/fund-operations', icon: 'ic:outline-keyboard-arrow-right' }}
+  >
+    <Fragment slot="title">
+      Groundbreaking Founders.<br />
+      Groundbreaking Returns.
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Ten X Labs is an Angel and pre-Seed fund that differentiates itself by creating deep, trusting bonds with first-time Founders before they’re even ready for investment. We combine this trust with expertise and capital to get in on the ground floor of these minority-led, Seed-ready companies.
+    </Fragment>
+  </Hero>
+
+ <!-- Portfolio Founders / Latest Posts Widget *************** -->
+
+  <LatestPosts
+  highlight="Ten X Labs Founders"  
+  title="Resilient. Optimistic. Driven."
+  description="Great businesses begin with the people behind them. Ten X Labs Founders are resilient, optimistic and not afraid to hustle."
+    postIds={[
+      'tradeblock.md',
+      'heydays.md',
+      'apex.md',
+    ]}
+  />
+
+  <!-- Playbook CTA -->
+
+  <section class="relative home-playbook mb-8">
+    <div class="home-playbook--border relative px-4 pt-4 pb-44 md:py-10 mx-auto max-w-8xl lg:py-14 lg:px-12">
+      <div class="home-playbook--container lg:flex lg:space-x-3">
+        <div class="home-playbook--left-content lg:w-2/5 lg:pr-4 ">
+          <h3>THE TEN X LABS PLAYBOOK</h3>
+          <h2 class="text-2xl font-bold sm:text-4xl lg:text-5xl leading-7 group font-heading mb-6 md:mb-8">Confident, focused execution</h2>
+        </div>
+        <div class="home-playbook--right-content lg:w-3/5 font-serif lg:text-xl lg:leading-8 lg:px-4 lg:text-white">
+          <p>At Ten X Labs, we identify and invest in exceptional first-time Founders who are often overlooked by traditional investors. Our approach identifies promising companies at a very early stage, and minimizes the traditional risks of those investments through thorough pre-investment due diligence of both the company and, crucially, its Founders. We pair this with our “Founders Operating System,”  a unique post-investment execution framework that helps our Founders execute rapidly and confidently in the early stages of a company’s life. </p>
+        </div>
+      </div>
+      <div class="home-playbook--cta">
+        <a class="btn btn-primary mt-8" href="/ten-x-playbook">
+          More about the Ten X Labs Playbook <Icon name="ic:outline-keyboard-arrow-right" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing the equity gap / Stats Widget ****************** -->
+
+  <Stats
+    highlight="Ten X Labs Fund"
+    title="Odds on favorites"
+    subtitle="People of color make up more than 30% of the US population, but less than 3% of venture funding goes to black and brown Founders. That 10x disparity — the namesake of our fund — represents an unacceptable level of inequity in the startup ecosystem, but also a massive opportunity to generate outsized economic returns for both investors and Founders."
+    items={[
+      { name: 'Raising', value: '50', what: 'million dollar investment fund' },
+      { name: 'Investing in', value: '30', what: 'first-time Founders of color' },
+      { name: 'Resulting in', value: '10', what: 'seed stage companies' },
+    ]}
+  />
+</Layout>

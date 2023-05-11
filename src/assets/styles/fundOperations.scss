@@ -1,0 +1,7 @@
+.hero-fund-operations {
+	background-image: url(../images/fo-hero-small.png);
+
+	@media screen and (min-width: theme('screens.md')) {
+		background-image: url(../images/fo-hero-large.png);
+	}
+}

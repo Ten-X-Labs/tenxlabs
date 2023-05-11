@@ -1,0 +1,82 @@
+---
+import { Icon } from 'astro-icon';
+import { SITE } from '~/config.mjs';
+import { getHomePermalink } from '~/utils/permalinks';
+
+interface Link {
+  text?: string;
+  href?: string;
+  ariaLabel?: string;
+  icon?: string;
+}
+
+interface Links {
+  title?: string;
+  links: Array<Link>;
+}
+
+export interface Props {
+  links: Array<Links>;
+}
+
+const { links = [] } = Astro.props;
+---
+
+<div class="footer--cta">
+  <div class="footer--cta-container relative px-4 pt-8 pb-10 md:px-8 md:py-10 mx-auto max-w-8xl md:flex md:items-center lg:py-14 lg:px-8">
+    <p class="footer--cta-text w-3/4 md:pr-8 md:mr-6  lg:text-2xl xl:text-[28px] xl:leading-9 xl:pr-16 xl:mr-8 lg:w-2/3">Ten X Labs invests our expertise and capital in first-time Founders of color. We help move businesses from Angel to Seed stage in a fraction of the time, at a fraction of the cost.</p>
+    <div class="home-playbook--cta md:col-span-4">
+      <a class="btn btn-primary mt-8 md:mt-0" href="mailto: info@ten-x-labs.com"> Contact Ten X Labs <Icon name="ic:outline-keyboard-arrow-right" /></a>
+    </div>
+  </div>
+</div>
+
+<footer class="relative footer">
+  <div class="dark:bg-dark absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div class="relative max-w-8xl mx-auto px-4 md:px-8">
+    <div class="flex justify-between py-8 md:pb-4 md:pt-4">
+      <div class="footer--logo-container col-span-12 lg:col-span-4">
+        <div class="mb-2">
+          <a class="footer--logo inline-block font-bold text-xl" href={getHomePermalink()}>{SITE?.name}</a>
+          <span class="copyright text-xs">&copy; <span id="copyright"></span> Ten X Labs</span>
+        </div>
+      </div>
+      <div class="footer--link-container flex text-xs uppercase navbarfooter">
+        <div class="">
+          {links && Array.isArray(links) && links.length > 0 && (
+            <ul class="text-sm md:flex md:gap-4">
+              {links.map(({ text, href, ariaLabel }) => (
+                <li class="mb-2">
+                  <a
+                    class=""
+                    href={href}
+                    aria-label={ariaLabel}
+                  >
+                    <Fragment set:html={text} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelector("#copyright").textContent = new Date()
+    .getFullYear()
+    .toString();
+</script>
+
+<script>
+  const nav = document.querySelector(".navbarfooter");
+  const navLinks = nav.querySelectorAll("a");
+  const currentURL = window.location.href;
+  navLinks.forEach((link) => {
+    if (link.href === currentURL) {
+      link.classList.add("active");
+    }
+  });
+</script>
