@@ -1,8 +1,16 @@
 .hero-playbook {
-	background-image: url(../images/playbook-hero-small.png);
+	background-image: url(../images/playbook-hero-small2.png);
 
 	@media screen and (min-width: theme('screens.md')) {
 		background-image: url(../images/playbook-hero-large.png);
+	}
+}
+
+.hero-founders {
+	background-image: url(../images/founders-hero-small.png);
+
+	@media screen and (min-width: theme('screens.md')) {
+		background-image: url(../images/founders-hero-large.png);
 	}
 }
 
