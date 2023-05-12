@@ -1,9 +1,9 @@
-import defaultImage from './assets/images/default.png';
+import defaultImage from './assets/images/default.jpg';
 
 const CONFIG = {
   name: 'Ten X Labs',
 
-  origin: 'https://ten-x-labs.com',
+  origin: 'https://10x-web-prod.netlify.app/tradeblock/',
   basePathname: '/',
   trailingSlash: false,
 
